@@ -8,18 +8,33 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * php artisan migrate
+     * php artisan migrate:rollback
+     * php artisan migrate:fresh (remove and recreate table)
+     * php artisan make:migration <migration_name>
+     * php artisan make:seeder <seeder_name>
+     * php artisan db:seed
+     * php artisan make:controller <controller_name>
+     * php artisan make:factory <factory_name>
      * @return void
      */
     public function up()
     {
         Schema::create('user', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->bigIncrements('id')->unsigned();
+            $table->string('role');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('province')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('contact')->nullable();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            //$table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            //$table->rememberToken();
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

@@ -16,5 +16,11 @@ use App\Http\Controllers\UserController;
 
 Route::prefix('user')->group(function () {
     Route::get('/', [UserController::class, 'index']);
+    Route::post('/', [UserController::class,'store']);
+    Route::get('create', [UserController::class,'create']);
+    Route::get('{id}', [UserController::class, 'show']);
+    Route::get('{id}/edit', [UserController::class, 'edit']);
+    Route::put('{id}', [UserController::class, 'update']);
+    Route::delete('{id}/delete', [UserController::class, 'destroy']);
   });
   

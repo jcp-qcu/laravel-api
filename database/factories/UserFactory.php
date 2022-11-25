@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -18,11 +19,23 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'role' => $this->faker->randomElement(["ADMIN","STAFF"]),
+            'firstname' => $this->faker->firstName(),
+            'lastname' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'address' => $this->faker->address(),
+            'city' => $this->faker->city(),
+            'province' => $this->faker->state(),
+            'zip_code' => $this->faker->postcode(),
+            'contact' => $this->faker->phoneNumber(),
+            'email' => $this->faker->email(),
+            //'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            //'remember_token' => Str::random(10),
+            'is_active' => $this->faker->randomElement([true,false]),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+
         ];
     }
 
