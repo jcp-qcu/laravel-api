@@ -5,7 +5,7 @@ jQuery(function ($) {
     // declare function
 
     $.testFunction = () => {
-        $(".loading").removeClass("d-none");
+        // $(".loading").removeClass("d-none");
     }
 
     $(document).ready(() => {

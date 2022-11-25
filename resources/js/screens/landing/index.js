@@ -4,8 +4,8 @@ import { Button } from '@mui/material';
 
 function LandingPage() {
   return (
-    <Container style={{ backgroundColor: 'red' }}>
-      <h1>hahah</h1>
+    <Container>
+      <h1>hahaha</h1>
       <Button variant="contained">Contained</Button>
     </Container>
   );

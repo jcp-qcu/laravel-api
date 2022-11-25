@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h1>HELLO HOME PAGE</h1>
+    <div class="container" id="LandingPage"></div>
 @endsection
 
 @section('imports')
