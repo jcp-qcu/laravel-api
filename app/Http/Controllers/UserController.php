@@ -74,4 +74,14 @@ class UserController extends Controller
     $user->save();
     return response()->json($user);
   }
+  public function login()
+  {
+    //dd($user->all());
+    $result = User::where([
+      ['email',"=", request('email')],
+      ['password',"=",request('password')],
+      ['is_active',"=",1],
+    ])->get();
+    return response()->json($result);
+  }
 }
