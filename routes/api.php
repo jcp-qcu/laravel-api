@@ -15,13 +15,14 @@ use App\Http\Controllers\UserController;
 */
 
 Route::prefix('user')->group(function () {
-    Route::get('/', [UserController::class, 'index']);
-    Route::post('/', [UserController::class,'store']);
-    Route::post('login', [UserController::class,'login']);
+    Route::get('/', [UserController::class, 'index']); //get all user with admin
+    Route::get('staffs', [UserController::class, 'staffs']); //get all user without admin
+    Route::post('/', [UserController::class,'store']); //create new staff
+    Route::post('login', [UserController::class,'login']); //login 
     Route::get('create', [UserController::class,'create']);
-    Route::get('{id}', [UserController::class, 'show']);
+    Route::get('{id}', [UserController::class, 'show']); //get by ID
     Route::get('{id}/edit', [UserController::class, 'edit']);
-    Route::put('{id}', [UserController::class, 'update']);
-    Route::delete('{id}/delete', [UserController::class, 'destroy']);
+    Route::put('{id}', [UserController::class, 'update']); //update
+    Route::delete('{id}/delete', [UserController::class, 'destroy']); //archive
   });
   

@@ -22,17 +22,21 @@ return new class extends Migration
     {
         Schema::create('user', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->string('role');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('address')->nullable();
-            $table->string('city')->nullable();
-            $table->string('province')->nullable();
-            $table->string('zip_code')->nullable();
+            $table->string('role')->nullable();
+            $table->string('img')->nullable();
+            $table->string('firstName')->nullable();
+            $table->string('middleName')->nullable();
+            $table->string('lastName')->nullable();
+            $table->string('suffix')->nullable();
+            $table->string('street')->nullable();
+            $table->string('age')->nullable();
+            // $table->string('city')->nullable();
+            // $table->string('province')->nullable();
+            // $table->string('zip_code')->nullable();
             $table->string('contact')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             //$table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             //$table->rememberToken();
             $table->boolean('is_active')->default(false);
             $table->timestamps();
